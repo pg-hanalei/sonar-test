@@ -1,36 +1,25 @@
-name: SonarCloud
-
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-
+on: push
+name: SonarQube Workflow
 jobs:
-  sonarcloud:
-    
-    name: SonarCloud
+  sonarqube:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Sonar Scanner
-        run: |
-          sudo apt-get install -y unzip
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.1.4188-linux.zip
-          unzip sonar-scanner-cli-4.7.1.4188-linux.zip
-          export PATH=$PATH:$PWD/sonar-scanner-4.7.1.4188-linux/bin
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Install dependencies
-        run: npm install
-      - name: SonarCloud Scan
-        run: npm run sonar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      
+    - uses: actions/checkout@master
+      with:
+        fetch-depth: 0
+    # Setup java 17 to be default (sonar-scanner requirement as of 5.x)
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '17'
+    # Setup sonar-scanner
+    - name: Setup SonarQube
+      uses: warchant/setup-sonar-scanner@v7
+    # Run sonar-scanner
+    - name: SonarQube Scan
+      run: sonar-scanner
+           -Dsonar.host.url=${{ secrets.SONAR_URL }}
+           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+           -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+           -Dsonar.sources=$GITHUB_WORKSPACE
