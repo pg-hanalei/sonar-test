@@ -1,5 +1,5 @@
 module.exports = {
-  testResultProcessor: "jest-sonar",
+  testResultsProcessor: "jest-sonar-reporter",
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   moduleNameMapper: {
@@ -17,7 +17,7 @@ module.exports = {
       tsconfig: 'tsconfig.json', // TypeScriptの設定ファイルを指定
     },
   },
-  reporters: ['default',  ['jest-junit', {
+  reporters: ['default',  ['jest-sonar-report', {
       outputDirectory: '/',
       outputName: 'test-report.xml',
       reportedFilePath: 'absolute'

@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --ci --reporters=default --reporters=jest-junit",
+    "test": "react-scripts test --watchAll=false --ci --reporters=default",
     "eject": "react-scripts eject",
     "sonar": "sonar-scanner"
   },
@@ -46,5 +46,10 @@
   "devDependencies": {
     "jest-sonar": "^0.2.16",
     "jest-sonar-reporter": "^2.0.0"
+  },
+  "jestSonar": {
+    "reportPath": "/",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
   }
 }
