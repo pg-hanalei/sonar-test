@@ -31,7 +31,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           run: |
             npm install -g sonarqube-scanner
-            sonar-scanner \
+            sonar-scanner ーX \
               -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
               -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
               -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
