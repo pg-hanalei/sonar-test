@@ -95,6 +95,7 @@ function isPalindrome(str: string): boolean {
 function shuffleArray(arr: any[]): any[] {
   const shuffledArr = [...arr];
   for (let i = shuffledArr.length - 1; i > 0; i--) {
+    // Math.random()は一般的な用途においては安全です。
     const j = Math.floor(Math.random() * (i + 1));
     [shuffledArr[i], shuffledArr[j]] = [shuffledArr[j], shuffledArr[i]];
   }
