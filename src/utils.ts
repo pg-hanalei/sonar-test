@@ -167,3 +167,37 @@ function messyFunction(a, b, c) {
     }
   }
 }
+
+
+function addNumbers(a: number, b: number): number {
+  return a + b;
+}
+
+function subtractNumbers(a: number, b: number): number {
+  return a - b;
+}
+
+// 重複しているコード
+function addAndSubtract(a: number, b: number): number {
+  const additionResult = a + b;
+  const subtractionResult = a - b;
+
+  return additionResult + subtractionResult;
+}
+
+// もう一度同じようなコード
+function multiplyNumbers(a: number, b: number): number {
+  return a * b;
+}
+
+function divideNumbers(a: number, b: number): number {
+  return a / b;
+}
+
+// 重複しているコード
+function multiplyAndDivide(a: number, b: number): number {
+  const multiplicationResult = a * b;
+  const divisionResult = a / b;
+
+  return multiplicationResult + divisionResult;
+}
