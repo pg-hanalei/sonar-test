@@ -95,9 +95,73 @@ function isPalindrome(str: string): boolean {
 function shuffleArray(arr: any[]): any[] {
   const shuffledArr = [...arr];
   for (let i = shuffledArr.length - 1; i > 0; i--) {
-    // Math.random()は一般的な用途においては安全です。
+    // Math.random()はこの箇所の使用においては安全です。
     const j = Math.floor(Math.random() * (i + 1));
     [shuffledArr[i], shuffledArr[j]] = [shuffledArr[j], shuffledArr[i]];
   }
   return shuffledArr;
+}
+
+function messyFunction(a, b, c) {
+  // コードスメル1: 長い関数
+  console.log('This is a very long function with poor structure and formatting.');
+
+  // コードスメル2: マジックナンバー
+  if (a === 42) {
+    console.log('Magic number 42 detected!');
+  }
+
+  // コードスメル3: 不適切な変数名
+  let x = a + b + c;
+
+  // コードスメル4: 複雑な条件式
+  if (a > 0 && b < 10 || c === 'example') {
+    console.log('Complex conditional logic.');
+  }
+
+  // コードスメル5: 過剰なコメント
+  // 以下のコードはログを出力します
+  console.log('Logging something important.');
+
+  // コードスメル6: 不必要な制御フロー
+  if (true) {
+    return a;
+  } else {
+    return b;
+  }
+
+  // コードスメル7: 冗長なコード
+  let duplicateVariable = x;
+
+  // コードスメル8: 一貫性のないインデント
+     console.log('Inconsistent indentation.');
+
+  // コードスメル9: 未使用の変数
+  let unusedVariable;
+
+  // コードスメル10: 魔法の文字列
+  if (c === 'magic') {
+    console.log('Magic string detected!');
+  }
+
+  // コードスメル11: グローバル変数の使用
+  globalVariable = 42;
+
+  // コードスメル12: セミコロンの不一致
+  console.log('Semicolon missing')
+
+  // コードスメル13: 関数内の副作用
+  console.log('Side effect within the function.');
+
+  // コードスメル14: 長すぎる行
+  console.log('This line is excessively long and needs to be broken into smaller lines to improve readability.');
+
+  // コードスメル15: 過度に入れ子になったブロック
+  if (a > 0) {
+    if (b > 0) {
+      if (c > 0) {
+        console.log('Excessive nesting.');
+      }
+    }
+  }
 }
