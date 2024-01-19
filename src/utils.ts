@@ -8,6 +8,7 @@ export const add2 = (x: number, y:number) => {
   return x + y
 }
 
+// TODO: TODOを記載する
 export const minus = (x: number, y:number) => {
   return x - y
 }
