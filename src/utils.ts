@@ -1,3 +1,4 @@
+// TODO: TODOを記載する
 export const add = (x: number, y:number) => {
   return x + y
 }
@@ -19,6 +20,7 @@ function sumNumbers(a: number, b: number): number {
 function capitalizeString(str: string): string {
   return str.toUpperCase();
 }
+
 
 // 3. 配列から偶数を抽出する関数
 function getEvenNumbers(arr: number[]): number[] {
